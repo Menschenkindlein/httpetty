@@ -37,18 +37,6 @@ class StatisticHandler extends ChannelTrafficShapingHandler {
     }
     
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        this.readThroughput = this.trafficCounter().cumulativeReadBytes() * 1000
-                / (System.currentTimeMillis() - this.trafficCounter().lastCumulativeTime());
-        super.channelRead(ctx, msg);
-    }
-    
-    @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        super.channelReadComplete(ctx);
-    }
-    
-    @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object requestInfo) {
         if (requestInfo instanceof LinkedList) {
             this.requestInfo = (LinkedList) requestInfo;
@@ -60,7 +48,8 @@ class StatisticHandler extends ChannelTrafficShapingHandler {
         TrafficCounter tc = this.trafficCounter();
         requestInfo.add((Long) tc.cumulativeReadBytes());
         requestInfo.add((Long) tc.cumulativeWrittenBytes());
-        requestInfo.add((Long) this.readThroughput);
+        requestInfo.add((Long) (tc.cumulativeReadBytes() + tc.cumulativeWrittenBytes()) * 1000
+        / (System.currentTimeMillis() - tc.lastCumulativeTime()));
         Statistic.addFullQuery(requestInfo);
         super.close(ctx, future);
     }
