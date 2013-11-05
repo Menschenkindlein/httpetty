@@ -37,6 +37,12 @@ class StatisticHandler extends ChannelTrafficShapingHandler {
     }
     
     @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+        Statistic.opened += 1;
+        super.channelRegistered(ctx);
+    }
+    
+    @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object requestInfo) {
         if (requestInfo instanceof LinkedList) {
             this.requestInfo = (LinkedList) requestInfo;
@@ -51,6 +57,7 @@ class StatisticHandler extends ChannelTrafficShapingHandler {
         requestInfo.add((Long) (tc.cumulativeReadBytes() + tc.cumulativeWrittenBytes()) * 1000
         / (System.currentTimeMillis() - tc.lastCumulativeTime()));
         Statistic.addFullQuery(requestInfo);
+        Statistic.opened -= 1;
         super.close(ctx, future);
     }
 }
