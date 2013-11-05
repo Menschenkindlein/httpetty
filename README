@@ -9,10 +9,10 @@ Redirect is just HTTP Found response with custom LOCATION header.
 
 Statistic is gathered from 'business logic' handler TestServerHandler,
 from Redirect route and via StatisticHandler which should count read-written
-bytes.
+bytes.  Note, that in 16 last connections, the last one is in the end :)
 
 Problems:
-- Strange speed values;
+- Strange speed values; May be solved (read+written/time)
 - Strange behaviour of delaying when using browser:
   - if you ask server many times on the same window - tasks are solved in
     parallel (same using wget);
