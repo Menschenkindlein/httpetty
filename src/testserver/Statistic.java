@@ -95,7 +95,7 @@ public class Statistic {
     	row.add(cal.getTime());
         requestsPerIp.put(ip, row);
         
-        if (lastQueries.size() >= 16) {
+        while (lastQueries.size() > 16) {
             lastQueries.remove();
         }
         
