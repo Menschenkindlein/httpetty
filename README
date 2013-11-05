@@ -1,0 +1,20 @@
+HTTPETTY TestServer
+
+Dependencies - netty 4.*
+
+To delay response on /hello route different group of executors was used.
+Delaying is performed via 'schedule' method of ChannelContext's executor.
+
+Redirect is just HTTP Found response with custom LOCATION header.
+
+Statistic is gathered from 'business logic' handler TestServerHandler,
+from Redirect route and via StatisticHandler which should count read-written
+bytes.
+
+Problems:
+- Strange speed values;
+- Strange behaviour of delaying when using browser:
+  - if you ask server many times on the same window - tasks are solved in
+    parallel (same using wget);
+  - if you ask server from two different windows - tasks are solved
+    sequentially, and there are three channels created.
