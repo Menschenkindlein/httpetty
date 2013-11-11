@@ -1,6 +1,12 @@
 HTTPETTY TestServer
 
+BUILDING
+
 Dependencies - netty 4.*
+
+May be builded using Maven (pom.xml included).
+
+IMPLEMENTATION DETAILS
 
 To delay response on /hello route different group of executors was used.
 Delaying is performed via 'schedule' method of ChannelContext's executor.
@@ -11,10 +17,17 @@ Statistic is gathered from 'business logic' handler TestServerHandler,
 from Redirect route and via StatisticHandler which should count read-written
 bytes.  Note, that in 16 last connections, the last one is in the end :)
 
-Problems:
+PROBLEMS
+
 - Strange speed values; May be solved (read+written/time)
 - Strange behaviour of delaying when using browser:
   - if you ask server many times on the same window - tasks are solved in
     parallel (same using wget);
   - if you ask server from two different windows - tasks are solved
     sequentially, and there are three channels created.
+
+ADDITIONAL FILES
+
+1. status.page.txt - contains response of the server on /status request
+2. ab.command.result.txt - contains the result of executing
+   ab -c 100 -n 10000 http://localhost:8080/status
