@@ -1,0 +1,35 @@
+STATISTICS
+==========
+
+Total queries: 9954
+Uniq IP: 1
+
+Queries per IP
+| IP       	| count	| Time                   	|
+| 127.0.0.1	| 9954	| Tue Nov 05 19:43:18 EET 2013	| 
+
+Redirects per URI
+| url     	| count	|
+| hello	| 1	| 
+
+
+Opened connections: 1
+
+16 last connections
+| src_ip    	| URI         	| timestamp               	| read	| wrtn	| speed (bytes/sec)	|
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1625	| 95166	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1625	| 100764	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1625	| 114200	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1625	| 122357	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1625	| 122357	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1625	| 122357	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1625	| 131769	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1625	| 131769	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1625	| 131769	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1625	| 131769	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1619	| 142250	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:13 EET 2013	| 88	| 1619	| 155181	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:42:37 EET 2013	| 118	| 1629	| 1747000	| 
+| 127.0.0.1	| /redirect?uri=hello	| Tue Nov 05 19:42:37 EET 2013	| 130	| 39	| 42250	| 
+| 127.0.0.1	| /hello	| Tue Nov 05 19:42:37 EET 2013	| 117	| 116	| 23	| 
+| 127.0.0.1	| /status	| Tue Nov 05 19:43:05 EET 2013	| 118	| 1655	| 1773000	| 
